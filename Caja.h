@@ -76,4 +76,8 @@ public:
             cout << "Gracias por su tiempo :c";
         }
     }
+    void set_carrito(Carritocompras* pcarritocompras)
+    {
+        carrito = pcarritocompras;  
+    }
 };
