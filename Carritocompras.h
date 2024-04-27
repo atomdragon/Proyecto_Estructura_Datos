@@ -1,29 +1,49 @@
 #pragma once
-#include "Carbohidratos.h"
+#include "Lista.h"
 #include "Cereal.h"
 #include "Proteina.h"
+#include "Carbohidratos.h"
 
 class Carritocompras
 {
 private:
-	Carbohidratos* carbos;
-	Proteina* prote;
-	Cereal* cere;
-	float precio_total;
+	Lista<Cereal*>* list_cereal = new Lista<Cereal*>();
+	Lista<Proteina*>* list_prote = new Lista<Proteina*>();
+	Lista<Carbohidratos*>* list_carbos = new Lista<Carbohidratos*>();
 public:
-	Carritocompras()
+	Carritocompras(){}
+	void agregar_producto()
 	{
-		precio_total = 0.0;
+		for (int i = 0; i < list_cereal->longitud(); i++)
+		{
+			cout << "Producto: " << i+1;
+			list_cereal->obtenerPos(i)->mostrar_cereal();
+		}
+		cout << endl;
+		for (int i = 0; i < list_prote->longitud(); i++)
+		{
+			cout << "Producto: " << i+1;
+			list_prote->obtenerPos(i)->mostrar_protes();
+		}
+		cout << endl;
+		for (int i = 0; i < list_carbos->longitud(); i++)
+		{
+			cout << "Porducto: " << i+1;
+			list_carbos->obtenerPos(i)->mostrar_carbos();
+		}
 	}
-	void precio_total()
+	void eliminar_producto(int n)
 	{
-		precio_total = carbos->getprecio() + prote->getprecio() + cere->getprecio();
-		cout << precio_total;
+		if (n >= 0 && n < list_cereal->longitud()) {
+			list_cereal->eliminaPos(n);
+		}
+		if (n >= 0 && n < list_prote->longitud()) {
+			list_prote->eliminaPos(n);
+		}
+		if (n >= 0 && n < list_carbos->longitud()) {
+			list_carbos->eliminaPos(n);
+		}
 	}
-	void mostrar_todos()
-	{
-		prote->mostrar_protes();
-		carbos->mostrar_carbos();
-		cere->mostrar_cereal();
-	}
+	
+
 };
