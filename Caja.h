@@ -42,4 +42,38 @@ public:
         float preciototal = preciocarbos + preciocereal + precioprote;
         return preciototal;
     }
+    void procesar_pago()
+    {
+        string sn= " ", efecotrajet=" ";
+        float efectivo_cliente;
+        cout << "Su monto total es: " << calcularPrecioTotal();
+        cout << "¿Desea procesar su pago?" << endl;
+        cin >> sn;
+        if (sn == "si")
+        {
+            cout << "Efectivo o tarjeta" << endl;
+            cin >> efecotrajet;
+            if (efecotrajet == "efectivo")
+            {
+                cout << "Ingrese su efecto: "; cin >> efectivo_cliente;
+                float vuelto = efectivo_cliente - calcularPrecioTotal();
+                cout << "Vuelto: " << vuelto << endl;
+                cout << "Su pedido fue registrado y esta siendo preparado";
+            }
+            if (efecotrajet == "tarjeta")
+            {
+                string numero_tarjeta = " ", cvv = " ", fecha_venci = " ";
+                cout << "Ingrese datos de la tarjeta" << endl;
+                cout << "Numero de la tarjeta: "; cin >> numero_tarjeta;
+                cout << "Fecha de vencimiento: "; cin >> fecha_venci;
+                cout << "CVV: "; cin >> cvv;
+                cout << "Su pedido fue registrado y esta siendo preparado";
+            }
+           
+        }
+        if (sn == "no")
+        {
+            cout << "Gracias por su tiempo :c";
+        }
+    }
 };
