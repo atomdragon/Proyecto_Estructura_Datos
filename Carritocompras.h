@@ -44,6 +44,17 @@ public:
 			list_carbos->eliminaPos(n);
 		}
 	}
-	
+	Lista<Cereal*>* get_lista_cereal()
+	{
+		return list_cereal;
+	}
+	Lista<Carbohidratos*>* get_lista_carbo()
+	{
+		return list_carbos;
+	}
+	Lista<Proteina*>* get_lista_prote()
+	{
+		return list_prote;
+	}
 
 };
